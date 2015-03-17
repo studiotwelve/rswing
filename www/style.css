@@ -1,4 +1,10 @@
+@viewport{width:device-width; height:device-height}
+@-webkit-viewport{width:device-width; height:device-height}
+@-moz-viewport{width:device-width; height:device-height}
+@-ms-viewport{width:device-width; height:device-height}
+@-o-viewport{width:device-width; height:device-height}
+
 *{-webkit-tap-highlight-color:rgba(0,0,0,0); box-sizing:border-box}
-html, body{height:100%; width:100%; margin:0px; padding:0px}
-body{-webkit-touch-callout:none; -webkit-text-size-adjust:none; -webkit-user-select:none; background-color:#E4E4E4; overflow:hidden}
-iframe{padding:0; margin:0; border:0 none}
+html,body{height:100%; margin:0px; padding:0px}
+body{-webkit-touch-callout:none; -webkit-text-size-adjust:none; -webkit-user-select:none; background-color:#e4e4e4}
+#app{padding:0; margin:0; border:0 none; display:block}

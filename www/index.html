@@ -5,34 +5,41 @@
 
 <title>Rotary Swing</title>
 
-<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="telephone=yes" />
 <meta name="msapplication-tap-highlight" content="no" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height target-densitydpi=device-dpi" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
 
+<link rel="stylesheet" type="text/css" href="bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-<iframe id="app" name="appFrame" src="http://rotaryswing.com" allowfullscreen webkitallowfullscreen seamless webkitseamless></iframe>
+<iframe id="app" name="appFrame" src="http://rotaryswing.com"></iframe>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <ul class="nav navbar-nav">
+    <li><a onclick="appFrameBack" title="Back">&#9664;</a></li>
+    <li><a onclick="appFrameHome" title="Home"></a></li>
+    <li><a onclick="appFrameLogin" title="Login"></a></li>
+    <li><a onclick="appFrameRefresh" title="Ref"></a></li>
+  </ul>
+</div>
 
 <script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="migrate.js"></script>
+
+<script type="text/javascript" src="bootstrap.js"></script>
 <script type="text/javascript" src="script.js"></script>
 <script type="text/javascript">  
   app.initialize();
-  
-  var windowWidth = document.Body.width;
-  var windowHeight = document.Body.height;
-  
-  appFrame.style.width = windowWidth;
-  appFrame.style.height = windowHeight;
-  
-  alert(windowWidth+windowHeight+appFrame.width+appFrame.height);
   
   function appFrameBack(){
     appFrame.history.back();
   }
   
-  function appFrameForward()(){
+  function appFrameForward(){
     appFrame.history.forward();
   }
   
@@ -44,6 +51,16 @@
     appFrame.src = "http://rotaryswing.com";
   }
   
+  $(function(){
+    var w = $("body").width(), h = $("body").height();
+    
+    $("#app").width(w+"px").height(h+"px");
+    
+    window.on("deviceorientation",function(e){
+      var w = $("body").width(), h = $("body").height();
+      $("#app").width(w+"px").height(h+"px");
+    });
+  });
 </script>
 </body>
 </html>
