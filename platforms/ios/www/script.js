@@ -16,5 +16,6 @@ var app = {
 
     appElement.setAttribute('data-listening', 'true');
     appElement.setAttribute('data-recieved', 'true');
+    appElement.setAttribute('src','http://rotartyswing.com/?app=true&udid='+device.uuid);
   }
 };
