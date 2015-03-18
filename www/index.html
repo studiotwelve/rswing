@@ -52,12 +52,17 @@
   }
   
   $(function(){
-    var w = $("body").width(), h = $("body").height();
+    var w = $("body").width, h = $("body").height;
     
     $("#app").width(w+"px").height(h+"px");
     
-    window.on("deviceorientation",function(e){
-      var w = $("body").width(), h = $("body").height();
+    window.addEventListener("orientationchange",function(){
+      var w = $("body").outerWidth, h = $("body").outerHeight;
+      $("#app").width(w+"px").height(h+"px");
+    });
+    
+    window.addEventListener("resize",function(){
+      var w = $("body").outerWidth, h = $("body").outerHeight;
       $("#app").width(w+"px").height(h+"px");
     });
   });
