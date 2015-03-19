@@ -7,25 +7,22 @@
 
 <meta name="format-detection" content="telephone=no" />
 <meta name="msapplication-tap-highlight" content="no" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, target-densitydpi=device-density" />
 
-<script src="cordova.js"></script>
-<script src="cordova_plugins.js"></script>
-<script src="uniqueid.js"></script>
-
-<script src="script.js"></script>
-
-<link rel="stylesheet" href="bootstrap.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
 
-<body onload="window.location.href='http://rotaryswing.com/?app=true&udid='+window.plugins.uniqueDeviceID.get(success, fail);+'&uuid='+device.uuid">
+<body>
+<iframe id="app" width="568" height="320" frameborder="0" src="http://rotaryswing.com"></iframe>
 
+<script src="cordova.js"></script>
+<script src="cordova_plugins.js"></script>
+<script src="plugins/hu.dpal.phonegap.plugins.UniqueDeviceID/www/uniqueid.js"></script>
+<script src="plugins/org.apache.cordova.device/www/uniqueid.js"></script>
+
+<script src="script.js"></script>
 <script>
 app.initialize();
-
-function success(uuid){console.log(uuid);};
 </script>
 </body>
 </html>
