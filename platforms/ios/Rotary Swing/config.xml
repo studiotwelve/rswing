@@ -17,6 +17,10 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <feature name="UniqueDeviceID">
+        <param name="ios-package" value="CDVUniqueDeviceID" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Rotary Swing</name>
     <description>STEP-BY-STEP INSTRUCTION TO A BIOMECHANICALLY PERFECT GOLF SWING.</description>
     <author email="hello@whitefoxstudios.net" href="http://whitefoxstudios.net">White Fox Studios</author>
@@ -37,6 +41,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="hu.dpal.phonegap.plugins.uniquedeviceid" source="plugins.cordova.io" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <icon src="icon.png" />

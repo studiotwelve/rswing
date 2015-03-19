@@ -5,71 +5,34 @@
 
 <title>Rotary Swing</title>
 
-<meta name="format-detection" content="telephone=yes" />
+<meta name="format-detection" content="telephone=no" />
 <meta name="msapplication-tap-highlight" content="no" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
 
-<link rel="stylesheet" type="text/css" href="bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="cordova.js"></script>
+<script src="script.js"></script>
+
+<link rel="stylesheet" href="bootstrap.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<iframe id="app" name="appFrame" src="http://rotaryswing.com?app=true&udid="></iframe>
+<div class="appWrapper"><iframe data-listening="" data-recieved="" data-orientation="" id="app" name="appFrame" src="http://rotaryswing.com?app=true" width="320px" height="568px" frameborder="0"></iframe></div>
 
-<div class="navbar navbar-default navbar-fixed-bottom">
-  <ul class="nav navbar-nav">
-    <li><a href="javascript:appFrame.history.back()" target="appFrame" title="Back">&#9664;</a></li>
-    <li><a href="http://rotaryswing.com?app=true&udid=" target="appFrame" title="Home">&#8962;</a></li>
-    <li><a href="http://rotaryswing.com/?app=true&udid=" target="appFrame" title="Login">&#128274;</a></li>
-    <li><a href="javascript:appFrame.reload()" target="appFrame" title="Ref"></a></li>
-  </ul>
+<script>app.initialize()</script>
+
+<div class="navbar navbar-default navbar-fixed-bottom"> 
+  <div class="container-fluid">
+    <div class="row">
+      <a class="col-xs-3 col-sm-3 col-md-3 col-lg-3" onclick="app.back('app');"><img src="back.png" /></a>
+      <a class="col-xs-3 col-sm-3 col-md-3 col-lg-3" onlick="app.home('app')"><img src="home.png" /></a>
+      <a class="col-xs-3 col-sm-3 col-md-3 col-lg-3" onclick="app.login('app')"><img src="user.png" /></a>
+      <a class="col-xs-3 col-sm-3 col-md-3 col-lg-3" onlick="app.reload('app')"><img src="reload.png" /></a>
+    </div>
+  </div>
 </div>
 
-<script type="text/javascript" src="cordova.js"></script>
-
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="migrate.js"></script>
-
-<script type="text/javascript" src="bootstrap.js"></script>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript">  
-  app.initialize();
-  
-  function appFrameBack(){
-    appFrame.history.back();
-  }
-  
-  function appFrameForward(){
-    appFrame.history.forward();
-  }
-  
-  function appFrameRefresh(){
-    appFrame.src = appFrame.src;
-  }
-  
-  function appFrameHome(){
-    appFrame.src = "http://rotaryswing.com?app=true&udid="+device.uuid;
-  }
-  
-  $(function(){
-    var w = $("body").width, h = $("body").height;
-    
-    $("#app").width(w+"px").height(h+"px");
-    
-    window.addEventListener("orientationchange",function(){
-      var w = $("body").outerWidth, h = $("body").outerHeight;
-      $("#app").width(w+"px").height(h+"px");
-    });
-    
-    window.addEventListener("resize",function(){
-      var w = $("body").outerWidth, h = $("body").outerHeight;
-      $("#app").width(w+"px").height(h+"px");
-    });
-    
-    window.addEventListener("deviceready", function(){
-      appFrame.src="http://rotaryswing.com?app=true&udid="+device.uuid;
-    });
-  });
-</script>
+<div id="statusbar"></div>
 </body>
 </html>

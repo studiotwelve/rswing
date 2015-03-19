@@ -4,5 +4,11 @@
             "type": "registry",
             "id": "org.apache.cordova.device"
         }
+    },
+    "hu.dpal.phonegap.plugins.UniqueDeviceID": {
+        "source": {
+            "type": "registry",
+            "id": "hu.dpal.phonegap.plugins.uniquedeviceid"
+        }
     }
 }
